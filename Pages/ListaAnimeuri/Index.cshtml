@@ -1,0 +1,53 @@
+﻿@page
+@model Site_Ilian_DanRaul.Pages.ListaAnimeuri.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th> 
+                @Html.DisplayNameFor(model => model.ListaAnimecs[0].Titlu.TitluAnime) 
+                </th>
+            <th> 
+                @Html.DisplayNameFor(model => model.ListaAnimecs[0].Nota.NotaAnime) 
+                </th>
+            <th> @Html.DisplayNameFor(model => model.ListaAnimecs[0].DataInceput)
+            </th>
+            <th> @Html.DisplayNameFor(model => model.ListaAnimecs[0].DataFinal)
+            </th>
+            <th> @Html.DisplayNameFor(model => model.ListaAnimecs[0].Statut.Stare)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ListaAnimecs) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titlu.TitluAnime) 
+                    </td>
+                <td> 
+                    @Html.DisplayFor(modelItem => item.Nota.NotaAnime) 
+                    </td>
+                <td> @Html.DisplayFor(modelItem => item.DataInceput)
+                </td>
+                <td> @Html.DisplayFor(modelItem => item.DataFinal)
+                </td>
+                <td> @Html.DisplayFor(modelItem => item.Statut.Stare) 
+                </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

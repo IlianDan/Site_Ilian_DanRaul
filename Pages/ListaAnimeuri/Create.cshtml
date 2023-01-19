@@ -1,0 +1,57 @@
+﻿@page
+@model Site_Ilian_DanRaul.Pages.ListaAnimeuri.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>ListaAnimecs</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group"> 
+                <label asp-for="ListaAnimecs.TitluID" class="control-label">Nume Anime</label> 
+                <select asp-for="ListaAnimecs.TitluID" class="form-control" asp-items="ViewBag.TitluID">
+                </select> 
+                <span asp-validation-for="ListaAnimecs.TitluID" class="text-danger"></span> 
+                </div>
+            <div class="form-group"> 
+                <label asp-for="ListaAnimecs.NotaID" class="control-label">Nota Anime</label> 
+                <select asp-for="ListaAnimecs.NotaID" class="form-control" asp-items="ViewBag.NotaID">
+                </select> 
+                <span asp-validation-for="ListaAnimecs.NotaID" class="text-danger"></span> 
+            </div>
+            <div class="form-group">
+                <label asp-for="ListaAnimecs.DataInceput" class="control-label"></label>
+                <input asp-for="ListaAnimecs.DataInceput" class="form-control" />
+                <span asp-validation-for="ListaAnimecs.DataInceput" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ListaAnimecs.DataFinal" class="control-label"></label>
+                <input asp-for="ListaAnimecs.DataFinal" class="form-control" />
+                <span asp-validation-for="ListaAnimecs.DataFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ListaAnimecs.StatutID" class="control-label">Stare</label>
+                <select asp-for="ListaAnimecs.StatutID" class="form-control" asp-items="ViewBag.StatutID"> 
+                </select> 
+                <span asp-validation-for="ListaAnimecs.StatutID" class="text-danger"></span> 
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
